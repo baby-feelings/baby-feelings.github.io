@@ -22,7 +22,7 @@ code-review-graph watch
 | **公開URL** | https://baby-feelings.github.io/ |
 | **アプリ本体URL** | https://baby-feelings.web.app/ |
 | **ホスティング** | GitHub Pages |
-| **静的サイト生成** | Jekyll 3.9.5（github-pages プラグイン） |
+| **静的サイト生成** | Jekyll 3.10.0（github-pages プラグイン） |
 | **CSS** | Tailwind CSS（CDN） |
 | **Google Analytics** | G-6BTCQ4XQZ3 |
 
@@ -30,6 +30,8 @@ code-review-graph watch
 
 ```
 baby-feelings.github.io/
+├── .github/
+│   └── dependabot.yml    # 依存関係の自動更新設定（bundler, weekly）
 ├── _config.yml          # Jekyll 設定ファイル
 ├── _layouts/
 │   └── default.html     # ベースレイアウト
@@ -47,6 +49,7 @@ baby-feelings.github.io/
 ├── terms.html           # 利用規約
 ├── contact.html         # お問い合わせ（Google Forms 埋め込み）
 ├── Gemfile              # Ruby 依存関係
+├── SKILL.md             # 必要スキル・技術スタック一覧
 └── _site/               # ビルド出力（自動生成・Git管理外推奨）
 ```
 
@@ -70,14 +73,19 @@ baby-feelings.github.io/
 - HTML は Jekyll テンプレート構文（Liquid）を使用してください。
 - CSS は Tailwind CSS のユーティリティクラスを優先的に使用してください。
 
-## CI/CD（GitHub Actions）
-GitHub Actions を活用し、以下のフローを一気通貫で行います。
+## CI/CD
 
-- Pull Request 作成
-- 自動テスト・静的解析
-- レビュー
-- Merge
-- GitHub Pages への自動デプロイ
+現状の構成:
+
+- **依存関係の自動更新**: Dependabot（`.github/dependabot.yml`）が bundler の依存を週次でチェックし、自動でPRを作成
+- **デプロイ**: GitHub Pages（legacy build）が `main` ブランチへのプッシュを検知し自動ビルド・公開（Actions ワークフローは未使用）
+- **自動テスト・静的解析**: GitHub Actions は未導入。導入する場合は以下のフローを想定
+
+  - Pull Request 作成
+  - 自動テスト・静的解析
+  - レビュー
+  - Merge
+  - GitHub Pages への自動デプロイ
 
 ## リファクタリング方針
 ### リファクタリングの基本方針
@@ -88,18 +96,18 @@ GitHub Actions を活用し、以下のフローを一気通貫で行います�
 ## 開発手順
 
 ```bash
-# 1. feature ブランチを作成
-git checkout -b feature/your-feature-name
+# 1. ブランチを作成（命名規約はコミットメッセージ規約のプレフィックスに準拠）
+git checkout -b <prefix>/short-description
 
 # 2. コードを変更・コミット
 git add <files>
 git commit -m "feat: 機能の説明"
 
 # 3. プッシュして PR を作成
-git push -u origin feature/your-feature-name
+git push -u origin <prefix>/short-description
 # → GitHub 上で Pull Request を作成
 
-# 4. CI が通ったら main へマージ → GitHub Pages に自動デプロイ
+# 4. レビュー通過後 main へマージ → GitHub Pages に自動デプロイ
 ```
 
 ## ローカル開発
