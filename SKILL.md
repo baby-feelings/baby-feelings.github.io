@@ -53,13 +53,14 @@
 | Google Analytics (GA4) | アクセス解析 | `_config.yml` の `google_analytics` |
 | Firebase Hosting | アプリ本体ホスティング | `https://baby-feelings.web.app/` |
 | CISA KEV API | セキュリティ脆弱性情報 | `CLAUDE.md` 参照 |
+| Dependabot | 依存関係（bundler）の自動更新 | `.github/dependabot.yml` |
 
 ## 開発環境
 
 | ツール | バージョン | 備考 |
 |--------|-----------|------|
 | Ruby | Gemfile に準拠 | Jekyll 実行環境 |
-| Jekyll | 3.9.5 | `github-pages` gem に含まれる |
+| Jekyll | 3.10.0 | `github-pages` gem に含まれる |
 | Bundler | 最新推奨 | `bundle install` で依存解決 |
 | Git | 最新推奨 | バージョン管理 |
 | Node.js | 不要 | Tailwind CSS は CDN 利用のため不要 |

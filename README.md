@@ -13,7 +13,7 @@ AIで赤ちゃんの泣き声を分析し、感情を推測するアプリ「Bab
 
 | 技術 | 用途 |
 |------|------|
-| Jekyll 3.9.5 | 静的サイト生成 |
+| Jekyll 3.10.0 | 静的サイト生成 |
 | GitHub Pages | ホスティング・自動デプロイ |
 | Tailwind CSS (CDN) | スタイリング |
 | Liquid | テンプレートエンジン |
@@ -24,6 +24,7 @@ AIで赤ちゃんの泣き声を分析し、感情を推測するアプリ「Bab
 
 ```
 baby-feelings.github.io/
+├── .github/dependabot.yml   # 依存関係の自動更新設定
 ├── _config.yml              # Jekyll 設定
 ├── _layouts/default.html    # ベースレイアウト
 ├── _includes/               # 共通パーツ（header, footer, head 等）
@@ -36,7 +37,8 @@ baby-feelings.github.io/
 ├── terms.html               # 利用規約
 ├── contact.html             # お問い合わせ
 ├── Gemfile                  # Ruby 依存関係
-└── CLAUDE.md                # AI開発ガイドライン
+├── CLAUDE.md                # AI開発ガイドライン
+└── SKILL.md                 # 必要スキル・技術スタック一覧
 ```
 
 ## ローカル開発
