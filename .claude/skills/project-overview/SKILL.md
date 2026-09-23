@@ -1,4 +1,9 @@
-# Baby Feelings 紹介ホームページ — スキルマップ
+---
+name: project-overview
+description: Baby Feelings紹介ホームページの必要スキル・技術スタック・外部サービス連携の一覧
+---
+
+## Baby Feelings 紹介ホームページ — スキルマップ
 
 本プロジェクトの開発に必要な技術スキルとナレッジをまとめます。
 
@@ -52,7 +57,7 @@
 | Google Forms | お問い合わせフォーム | `contact.html` 内の iframe |
 | Google Analytics (GA4) | アクセス解析 | `_config.yml` の `google_analytics` |
 | Firebase Hosting | アプリ本体ホスティング | `https://baby-feelings.web.app/` |
-| CISA KEV API | セキュリティ脆弱性情報 | `CLAUDE.md` 参照 |
+| CISA KEV API | セキュリティ脆弱性情報 | `.claude/skills/security-check/SKILL.md` 参照 |
 | Dependabot | 依存関係（bundler）の自動更新 | `.github/dependabot.yml` |
 
 ## 開発環境
