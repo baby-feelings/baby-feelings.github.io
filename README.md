@@ -38,7 +38,7 @@ baby-feelings.github.io/
 ├── contact.html             # お問い合わせ
 ├── Gemfile                  # Ruby 依存関係
 ├── CLAUDE.md                # AI開発ガイドライン
-└── SKILL.md                 # 必要スキル・技術スタック一覧
+└── .claude/skills/          # プロジェクト固有スキル（スキルマップ・セキュリティチェック等）
 ```
 
 ## ローカル開発
@@ -62,7 +62,7 @@ bundle exec jekyll serve
 
 ## 開発フロー
 
-1. `feature/*` ブランチを作成
+1. `<prefix>/short-description` ブランチを作成（プレフィックスはコミットメッセージ規約に準拠）
 2. 変更をコミット（[コミットメッセージ規約](CLAUDE.md#コミットメッセージ規約)に従う）
 3. Pull Request を作成
 4. レビュー・CI 通過後に `main` へマージ
