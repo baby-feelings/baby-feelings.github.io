@@ -14,9 +14,9 @@ description: 開発・実装・レビュー前にCISA KEVカタログの脆弱�
 
 | 項目 | 内容 |
 |------|------|
-| **エンドポイント** | `https://cyberattack-info-api.onrender.com` |
+| **エンドポイント** | `https://168.138.213.240.nip.io` |
 | **認証** | `X-API-KEY` ヘッダー（値は `.env.production` の `API_KEY` を参照） |
-| **ドキュメント** | `https://cyberattack-info-api.onrender.com/docs` |
+| **ドキュメント** | `https://168.138.213.240.nip.io/docs` |
 | **更新頻度** | 毎日 JST 04:00 自動取得 |
 
 ### 開発前に必ず実施すること
@@ -27,14 +27,14 @@ description: 開発・実装・レビュー前にCISA KEVカタログの脆弱�
 # PowerShell
 $key = $env:CYBERATTACK_API_KEY  # 環境変数から取得
 Invoke-RestMethod `
-  -Uri "https://cyberattack-info-api.onrender.com/api/vulnerabilities/recent?days=30" `
+  -Uri "https://168.138.213.240.nip.io/api/vulnerabilities/recent?days=30" `
   -Headers @{ "X-API-KEY" = $key }
 ```
 
 ```bash
 # bash / CI
 curl -s -H "X-API-KEY: $CYBERATTACK_API_KEY" \
-  "https://cyberattack-info-api.onrender.com/api/vulnerabilities/recent?days=30"
+  "https://168.138.213.240.nip.io/api/vulnerabilities/recent?days=30"
 ```
 
 **2. 使用ライブラリ・製品に関連する脆弱性を検索する**
@@ -43,7 +43,7 @@ curl -s -H "X-API-KEY: $CYBERATTACK_API_KEY" \
 # 例: 本プロジェクトで使用している技術スタックの脆弱性を確認
 foreach ($keyword in @("Jekyll", "Ruby", "JavaScript", "nginx")) {
     $result = Invoke-RestMethod `
-      -Uri "https://cyberattack-info-api.onrender.com/api/vulnerabilities?search=$keyword&per_page=5" `
+      -Uri "https://168.138.213.240.nip.io/api/vulnerabilities?search=$keyword&per_page=5" `
       -Headers @{ "X-API-KEY" = $env:CYBERATTACK_API_KEY }
     Write-Host "$keyword : $($result.total) 件"
 }
@@ -53,7 +53,7 @@ foreach ($keyword in @("Jekyll", "Ruby", "JavaScript", "nginx")) {
 # bash
 for keyword in Jekyll Ruby JavaScript nginx; do
   count=$(curl -s -H "X-API-KEY: $CYBERATTACK_API_KEY" \
-    "https://cyberattack-info-api.onrender.com/api/vulnerabilities?search=$keyword&per_page=1" \
+    "https://168.138.213.240.nip.io/api/vulnerabilities?search=$keyword&per_page=1" \
     | python -c "import sys,json; print(json.load(sys.stdin)['total'])")
   echo "$keyword: $count 件"
 done
