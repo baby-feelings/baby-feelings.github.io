@@ -1,0 +1,7 @@
+# CODESCAN（cyberattack_info_api、Issue #228）のSemgrepスキャンが、Jekyllの
+# Liquid テンプレート変数（{{ site.google_analytics }} 等、_config.yml由来で
+# サイト管理者が制御する値。ユーザー入力が混入する経路は無い静的サイト）を
+# 汎用ルール（generic.html-templates.security.var-in-script-tag）で誤検知
+# するため除外する。
+
+_includes/head.html
