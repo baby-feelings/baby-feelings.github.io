@@ -19,12 +19,15 @@ AIで赤ちゃんの泣き声を分析し、感情を推測するアプリ「Bab
 | Liquid | テンプレートエンジン |
 | Google Analytics | アクセス解析 |
 | Google Forms | お問い合わせフォーム |
+| jekyll-sitemap | sitemap.xml の自動生成 |
+| Dependabot | 依存関係の自動更新（週次） |
 
 ## ディレクトリ構成
 
 ```
 baby-feelings.github.io/
 ├── .github/dependabot.yml   # 依存関係の自動更新設定
+├── .semgrepignore           # Semgrep 誤検知の除外設定
 ├── _config.yml              # Jekyll 設定
 ├── _layouts/default.html    # ベースレイアウト
 ├── _includes/               # 共通パーツ（header, footer, head 等）
@@ -36,7 +39,8 @@ baby-feelings.github.io/
 ├── privacy.html             # プライバシーポリシー
 ├── terms.html               # 利用規約
 ├── contact.html             # お問い合わせ
-├── Gemfile                  # Ruby 依存関係
+├── site.webmanifest         # PWA マニフェスト（favicon・アイコン類とセット）
+├── Gemfile / Gemfile.lock   # Ruby 依存関係
 ├── CLAUDE.md                # AI開発ガイドライン
 └── .claude/skills/          # プロジェクト固有スキル（スキルマップ・セキュリティチェック等）
 ```

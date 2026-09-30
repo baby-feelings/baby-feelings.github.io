@@ -36,10 +36,13 @@ code-review-graph watch
 
 ```
 baby-feelings.github.io/
-├── .claude/skills/       # プロジェクト固有スキル（セキュリティチェック等）
+├── .claude/
+│   ├── settings.json     # code-review-graph 連携フック
+│   └── skills/           # プロジェクト固有スキル（セキュリティチェック等）
 ├── .github/
 │   └── dependabot.yml    # 依存関係の自動更新設定（bundler, weekly）
-├── _config.yml          # Jekyll 設定ファイル
+├── .semgrepignore        # Semgrep 誤検知の除外設定（理由付き）
+├── _config.yml          # Jekyll 設定（jekyll-sitemap, GA ID）
 ├── _layouts/
 │   └── default.html     # ベースレイアウト
 ├── _includes/
@@ -55,8 +58,10 @@ baby-feelings.github.io/
 ├── privacy.html         # プライバシーポリシー
 ├── terms.html           # 利用規約
 ├── contact.html         # お問い合わせ（Google Forms 埋め込み）
-├── Gemfile              # Ruby 依存関係
-└── _site/               # ビルド出力（自動生成・Git管理外推奨）
+├── site.webmanifest     # PWA マニフェスト（favicon・各種アイコンとセット）
+├── google*.html         # Google Search Console 所有権確認ファイル
+├── Gemfile / Gemfile.lock  # Ruby 依存関係
+└── _site/               # ビルド出力（自動生成物。現状 Git 管理下のため手編集しない）
 ```
 
 ## 開発方針（設計原則）
@@ -92,6 +97,13 @@ baby-feelings.github.io/
   - レビュー
   - Merge
   - GitHub Pages への自動デプロイ
+
+## セキュリティ
+
+- 開発・レビュー前に `.claude/skills/security-check/SKILL.md` の手順で脆弱性情報を確認する
+- CODESCAN（Semgrep）の誤検知は `.semgrepignore` に理由を書いて除外する
+- `*.env`（API キー等）は `.gitignore` 済み。絶対にコミットしない
+- GitHub の Dependabot アラートは Dependabot PR を確認のうえマージして解消する
 
 ## リファクタリング方針
 ### リファクタリングの基本方針

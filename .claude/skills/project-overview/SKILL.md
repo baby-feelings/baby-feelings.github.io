@@ -31,7 +31,7 @@ description: Baby Feelings紹介ホームページの必要スキル・技術ス
 |--------|--------|------|
 | GitHub Pages | 基本 | ホスティング・自動デプロイ |
 | Git / GitHub | 基本〜中級 | バージョン管理・ブランチ運用・PR レビュー |
-| GitHub Actions | 基本 | CI/CD パイプライン |
+| GitHub Actions | 基本 | CI/CD パイプライン（現状は未導入。導入時に必要） |
 
 ### 4. SEO・アクセス解析
 
@@ -46,7 +46,8 @@ description: Baby Feelings紹介ホームページの必要スキル・技術ス
 | スキル | 用途 |
 |--------|------|
 | Ruby (Bundler) | Gemfile 管理・Jekyll プラグイン開発 |
-| PWA (Web App Manifest) | モバイル対応・ホーム画面追加 |
+| PWA (Web App Manifest) | モバイル対応・ホーム画面追加（`site.webmanifest`・各種アイコン導入済み） |
+| Semgrep（静的解析） | CODESCAN の指摘対応・`.semgrepignore` の管理 |
 | アクセシビリティ (WCAG) | alt 属性・コントラスト比・キーボード操作 |
 | パフォーマンス最適化 | 画像圧縮・Lazy Loading・Core Web Vitals |
 
@@ -59,6 +60,8 @@ description: Baby Feelings紹介ホームページの必要スキル・技術ス
 | Firebase Hosting | アプリ本体ホスティング | `https://baby-feelings.web.app/` |
 | CISA KEV API | セキュリティ脆弱性情報 | `.claude/skills/security-check/SKILL.md` 参照 |
 | Dependabot | 依存関係（bundler）の自動更新 | `.github/dependabot.yml` |
+| Google Search Console | サイト所有権の確認 | `google420155a9b725e0a0.html` |
+| jekyll-sitemap | sitemap.xml の自動生成 | `_config.yml` の `plugins` |
 
 ## 開発環境
 
