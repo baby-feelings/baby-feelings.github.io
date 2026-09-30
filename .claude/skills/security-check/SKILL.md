@@ -18,6 +18,7 @@ description: 開発・実装・レビュー前にCISA KEVカタログの脆弱�
 | **認証** | `X-API-KEY` ヘッダー（値は `.env.production` の `API_KEY` を参照） |
 | **ドキュメント** | `https://168.138.213.240.nip.io/docs` |
 | **更新頻度** | 毎日 JST 04:00 自動取得 |
+| **備考** | 2026年9月に Render.com から OCI へ移行済み。旧 `cyberattack-info-api.onrender.com` は停止済みのため使用しない |
 
 ### 開発前に必ず実施すること
 
@@ -70,6 +71,13 @@ done
 | **テスト追加** | 該当する攻撃ベクトルに対するセキュリティテストを追加する |
 | **コードレビュー** | PR レビュー時に、直近の CVE と照合してセキュリティ観点のコメントを付ける |
 | **ドキュメント** | 対応した脆弱性と対策内容をコミットメッセージ・PR 説明に記載する |
+
+### 静的解析（Semgrep）の誤検知除外
+
+CODESCAN の Semgrep スキャンが、Jekyll の Liquid 変数（`_includes/head.html` の
+`{{ site.google_analytics }}` 等。`_config.yml` 由来で、ユーザー入力の混入経路が無い静的サイト）を
+`var-in-script-tag` ルールで誤検知する。該当ファイルは `.semgrepignore` で除外済み。
+新たに同種の誤検知が出た場合は、値の出所を確認したうえで `.semgrepignore` に理由付きで追記する。
 
 ### 他プロジェクトへの転記方法
 
