@@ -1,5 +1,7 @@
 # Baby Feelings 紹介ホームページ
 
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+
 AIで赤ちゃんの泣き声を分析し、感情を推測するアプリ「Baby Feelings」の紹介サイトです。
 
 ## 公開URL
@@ -75,3 +77,10 @@ bundle exec jekyll serve
 ## ライセンス
 
 All Rights Reserved. &copy; Baby Feelings.
+
+
+## ライセンス
+
+[GNU Affero General Public License v3.0（AGPL-3.0）](LICENSE)
+
+AGPL-3.0 は、コードを改変してネットワーク経由で提供する場合（サーバー型サービスとしての利用を含む）も、改変後のソースコードを利用者に公開する義務を課す強めのコピーレフトライセンスです。無断でコードをコピーして非公開の競合サービスとして運営することを防ぐ目的で選択しています。個人利用・学習目的の閲覧・フォークは自由ですが、本コードを基にしたサービスを公開する場合はソースコードの公開が必要です。商用利用や別ライセンスでの利用を希望する場合は個別にご相談ください。
