@@ -1,5 +1,7 @@
 # Baby Feelings 紹介ホームページ
 
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+
 AIで赤ちゃんの泣き声を分析し、感情を推測するアプリ「Baby Feelings」の紹介サイトです。
 
 ## 公開URL
